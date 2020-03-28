@@ -1,4 +1,5 @@
 import React from 'react';
+import SensorDisplay from './components/SensorDisplay';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,6 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <SensorDisplay/>
         </p>
         <a
           className="App-link"
