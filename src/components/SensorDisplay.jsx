@@ -10,38 +10,34 @@ class SensorDisplay extends React.Component {
     let dateObj = new Date (date)
     let localTime = dateObj.toLocaleTimeString();
     let localDay = dateObj.toLocaleDateString();
-    return <h3>{localDay + " " + localTime}</h3>
+    return <div>{localDay + " " + localTime}</div>
   }
 
   // We want a function that takes in a sensor.
 
   sensorMapper(sensor) {
-
   //Now render out the readings with each specific sensor
   let currentSensor = sensor.id
-
   //Get the values from readings that match currentSensor
   const readingValues = readingData.map(data => {
-    console.log(data.sensorId, ' reading data', currentSensor)
     if (data.sensorId === currentSensor) {
       return (
         <div>
-          <p>{data.sensorId}</p>
-          <p>{data.time}</p>
-          <p>{data.value}</p>
+          <p>Sensor {data.sensorId}: {sensor.name}</p>
+          <p>{this.dateLocalizer(data.time)}</p>
+          <p>{data.value} {sensor.units}</p>
         </div>
       )
     }
   })
+
     return (
     <div>
-      <h2>Sensor</h2>
-      <div>{sensor.id}</div>
-      <div>{sensor.name}</div>
-      <div>{sensor.type}</div>
-      <div>{this.dateLocalizer(sensor.createdAt)}</div>
-      <div>{sensor.units}</div>
-      <h2>Reading Data</h2>
+      <h1>Sensor {sensor.id}</h1>
+      <div>Name: {sensor.name}</div>
+      <div>Type: {sensor.type}</div>
+      <div>Created: {this.dateLocalizer(sensor.createdAt)}</div>
+      <h3>Reading Data:</h3>
       <div>{readingValues}</div>
     </div>
     )
@@ -51,7 +47,6 @@ class SensorDisplay extends React.Component {
   render() {
     return (
       <div>
-        <h1>Here are our sensors</h1>
         {sensorData.map(sensor => 
           this.sensorMapper(sensor)
         )}
