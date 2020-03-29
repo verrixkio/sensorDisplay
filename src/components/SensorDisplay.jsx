@@ -6,7 +6,7 @@ var readingData = require('../readings.json');
 
 class SensorDisplay extends React.Component { 
 
-  //Function that will return the local time and day or a date string.
+  //Function that will return the local time and day from a date string.
   dateLocalizer(date) {
     let dateObj = new Date (date)
     let localTime = dateObj.toLocaleTimeString();
