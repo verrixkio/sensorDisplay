@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+//Temptoggle uses the useState react hook to handle the toggling between Celsius and Farhenheit.
 function TempToggle(props) {
 
   const [value, setValue] = useState(props.value);
@@ -16,16 +17,23 @@ function TempToggle(props) {
     }
   }
 
-  return (
-    <div className="App">
-      <div className="container">
-        <h3>{(Math.round((value + Number.EPSILON) * 100) / 100)}</h3>
-        <button onClick={toggleTrueFalse}>
-          <h3>{isToggled}</h3>
-        </button>
-      </div>
+  if (props.unit === "Celsius" || props.unit === "Farenheit") {
+    return (
+      <div className="temperature-toggle">
+      <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)}°</h4>
+      <button onClick={toggleTrueFalse}>
+        <h3>{isToggled}</h3>
+      </button>
     </div>
-  );
+    )
+  } else {
+    return (
+      <div className="temperature-toggle">
+        <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)}</h4>
+        <h3>{isToggled}</h3>
+      </div>
+    )
+  };
 }
 
 export default TempToggle
