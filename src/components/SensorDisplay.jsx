@@ -11,7 +11,7 @@ class SensorDisplay extends React.Component {
     let dateObj = new Date (date)
     let localTime = dateObj.toLocaleTimeString();
     let localDay = dateObj.toLocaleDateString();
-    return <div>{localTime}<br></br>{localDay}</div>
+    return localTime + localDay
   }
   
   //Function that takes a specific sensor and maps the reading data to that sensor.
@@ -22,10 +22,16 @@ class SensorDisplay extends React.Component {
   const readingValues = readingData.map(data => {
     if (data.sensorId === currentSensor) {
       return (
-        <div className="reading-data">
-          <p>{this.dateLocalizer(data.time)}</p>
-          <TempToggle unit={sensor.units} value={data.value}/>
-        </div>
+        // <div className="reading-data">
+        //   <p>{this.dateLocalizer(data.time)}</p>
+        //   <TempToggle unit={sensor.units} value={data.value}/>
+        // </div>
+
+    <tr>
+      <td>{this.dateLocalizer(data.time)}</td>
+      <TempToggle unit={sensor.units} value={data.value}/>
+    </tr>
+
       )
     } else {
         return null
@@ -33,16 +39,21 @@ class SensorDisplay extends React.Component {
   })
 
   return (
-    <div className="sensor-data">
-      <h1>Sensor {sensor.id}</h1>
-      <h2>{sensor.name}</h2>
-      <h3>Type: {sensor.type}</h3>
-      <h3>Created: {this.dateLocalizer(sensor.createdAt)}</h3>
-      <h4>Reading Data:</h4>
-      <div className="display-grid">
-        {readingValues}
-      </div>
-    </div>
+<div>
+  <div className="sensor-data">
+    <h1>Sensor {sensor.id}</h1>
+    <h2>{sensor.name}</h2>
+    <h3>Type: {sensor.type}</h3>
+    <h3>Created: {this.dateLocalizer(sensor.createdAt)}</h3>
+  </div>
+  <table>
+    <tr>
+      <th>Time of Reading</th>
+      <th>Value</th>
+    </tr>
+      {readingValues}
+  </table>
+</div>
     )
   }
 

@@ -19,12 +19,14 @@ function TempToggle(props) {
 
   if (props.unit === "Celsius" || props.unit === "Farenheit") {
     return (
-      <div className="temperature-toggle">
-      <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)}°{isToggled}</h4>
-      <button onClick={toggleTrueFalse}>
-        <h3>°C/F</h3>
-      </button>
-    </div>
+      <td>
+        <div className="temperature-toggle">
+          <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)}°{isToggled}</h4>
+          <button onClick={toggleTrueFalse}>
+            <h3>°C/F</h3>
+          </button>
+        </div>
+      </td>
     )
   } else {
     return (
