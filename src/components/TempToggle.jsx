@@ -23,16 +23,18 @@ function TempToggle(props) {
         <div className="temperature-toggle">
           <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)}°{isToggled}</h4>
           <button onClick={toggleTrueFalse}>
-            <h3>°C/F</h3>
+            °C/F
           </button>
         </div>
       </td>
     )
   } else {
     return (
-      <div className="temperature-toggle">
-        <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)} {isToggled} H</h4>
-      </div>
+      <td>
+        <div className="temperature-toggle">
+          <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)} {isToggled} H</h4>
+        </div>
+      </td>
     )
   };
 }
