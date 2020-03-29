@@ -18,20 +18,15 @@ class SensorDisplay extends React.Component {
   sensorMapper(sensor) {
 
   let currentSensor = sensor.id
-
+  
+  //Build the table data by mapping through the readings.
   const readingValues = readingData.map(data => {
     if (data.sensorId === currentSensor) {
       return (
-        // <div className="reading-data">
-        //   <p>{this.dateLocalizer(data.time)}</p>
-        //   <TempToggle unit={sensor.units} value={data.value}/>
-        // </div>
-
-    <tr>
-      <td>{this.dateLocalizer(data.time)}</td>
-      <TempToggle unit={sensor.units} value={data.value}/>
-    </tr>
-
+        <tr>
+          <td>{this.dateLocalizer(data.time)}</td>
+          <TempToggle unit={sensor.units} value={data.value}/>
+        </tr>
       )
     } else {
         return null

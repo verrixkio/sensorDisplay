@@ -24,13 +24,13 @@ h2, h3 {
 
 table {
   border-collapse: collapse;
-  box-shadow: -3px 5px 13px 0px #888888;
-  table-layout: fixed;
 }
 
 .overflow-table {
   max-height: 400px;
   overflow: scroll;
+  box-shadow: -3px 5px 13px 0px #888888;
+  display: inline-block;
 }
 
 table, th, td {
