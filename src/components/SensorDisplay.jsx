@@ -11,7 +11,7 @@ class SensorDisplay extends React.Component {
     let dateObj = new Date (date)
     let localTime = dateObj.toLocaleTimeString();
     let localDay = dateObj.toLocaleDateString();
-    return <div>{localDay}<br></br>{localTime}</div>
+    return <div>{localTime}<br></br>{localDay}</div>
   }
   
   //Function that takes a specific sensor and maps the reading data to that sensor.
@@ -35,7 +35,7 @@ class SensorDisplay extends React.Component {
   return (
     <div className="sensor-data">
       <h1>Sensor {sensor.id}</h1>
-      <h3>Name: {sensor.name}</h3>
+      <h2>{sensor.name}</h2>
       <h3>Type: {sensor.type}</h3>
       <h3>Created: {this.dateLocalizer(sensor.createdAt)}</h3>
       <h4>Reading Data:</h4>
