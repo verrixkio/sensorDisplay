@@ -18,7 +18,7 @@ class SensorDisplay extends React.Component {
   sensorMapper(sensor) {
 
   let currentSensor = sensor.id
-  
+
   //Build the table data by mapping through the readings.
   const readingValues = readingData.map(data => {
     if (data.sensorId === currentSensor) {
@@ -33,24 +33,27 @@ class SensorDisplay extends React.Component {
     }
   })
 
+  //Return the built table and sensor data to our original map.
   return (
-<div>
-  <div className="sensor-data">
-    <h1>Sensor {sensor.id}</h1>
-    <h3>{sensor.name}</h3>
-    <h3>Type: {sensor.type}</h3>
-    <h3>Created: {this.dateLocalizer(sensor.createdAt)}</h3>
-  </div>
-  <div className="overflow-table">
-    <table>
-      <thead>
-        <th>Time of Reading</th>
-        <th>Value</th>
-      </thead>
-        {readingValues}
-    </table>
-  </div>
-</div>
+    <div>
+      <div className="sensor-data">
+        <h1>Sensor {sensor.id}</h1>
+        <h3>{sensor.name}</h3>
+        <h3>Type: {sensor.type}</h3>
+        <h3>Created: {this.dateLocalizer(sensor.createdAt)}</h3>
+      </div>
+      <div className="overflow-table">
+        <table>
+          <tbody>
+          <tr>
+            <th>Time of Reading</th>
+            <th>Value</th>
+          </tr>
+            {readingValues}
+          </tbody>
+        </table>
+      </div>
+    </div>
     )
   }
 
