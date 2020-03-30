@@ -1,19 +1,17 @@
 import React from 'react';
-import SensorMapper from './SensorMapper';
+import TableBuilder from './TableBuilder';
 
 var sensorData = require('../sensors.json');
-class SensorDisplay extends React.Component { 
 
-  render() {
+function SensorDisplay() {
 
     return (
       <div>
         {sensorData.map(sensor => 
-          <SensorMapper key={"sensor-map" + sensor.id} sensor={sensor}/>
+          <TableBuilder key={"sensor-map" + sensor.id} sensor={sensor}/>
         )}
       </div>
     );
-  }
-}
+};
 
 export default SensorDisplay;

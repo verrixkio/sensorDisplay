@@ -10,4 +10,5 @@
   { "time": "2020-01-01T03:22Z", "sensorId": 3, "value": 17.938 },
   { "time": "2020-01-01T07:25Z", "sensorId": 3, "value": 19.23 },
   { "time": "2020-01-01T18:22Z", "sensorId": 3, "value": 18.43 }
+
 ]

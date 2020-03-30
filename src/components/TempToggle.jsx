@@ -6,7 +6,7 @@ function TempToggle(props) {
   const [value, setValue] = useState(props.value);
   const [isToggled, setToggled] = useState(props.unit);
 
-  const toggleTrueFalse = () => {
+  const toggleFarhen = () => {
     if (isToggled === "Celsius") {
       setValue(value * (9/5) + 32);
       setToggled("Farhenheit");
@@ -15,20 +15,20 @@ function TempToggle(props) {
       setValue((5/9) * (value-32));
       setToggled("Celsius");
     }
-  }
+  };
 
   if (props.unit === "Celsius" || props.unit === "Farenheit") {
     return (
       <td>
         <div className="temperature-toggle">
           <h4>{(Math.round((value + Number.EPSILON) * 100) / 100)}°{isToggled}</h4>
-          <button onClick={toggleTrueFalse}>
+          <button onClick={toggleFarhen}>
             °C/F
           </button>
         </div>
       </td>
     )
-  } else {
+} else {
     return (
       <td>
         <div className="temperature-toggle">
@@ -36,7 +36,7 @@ function TempToggle(props) {
         </div>
       </td>
     )
-  };
-}
+  }
+};
 
-export default TempToggle
+export default TempToggle;
