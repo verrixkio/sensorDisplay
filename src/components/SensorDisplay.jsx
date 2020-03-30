@@ -9,7 +9,7 @@ class SensorDisplay extends React.Component {
     return (
       <div>
         {sensorData.map(sensor => 
-          <SensorMapper sensor={sensor}/>
+          <SensorMapper key={"sensor-map" + sensor.id} sensor={sensor}/>
         )}
       </div>
     );

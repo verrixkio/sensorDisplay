@@ -9,9 +9,8 @@ function SensorMapper(props) {
 const sensor = props.sensor
 
 //Set State for the button that displays sensor.
-const [hidden, setHidden] = useState("");
-const [button, setButton] = useState("Hide Readings")
-
+const [hidden, setHidden] = useState("hidden");
+const [button, setButton] = useState("Show Readings")
 
 //Function that will return the local time and day from a date string.
 const dateLocalizer = (date) => {
@@ -22,7 +21,6 @@ const dateLocalizer = (date) => {
 }
 
 const hideTables = () => {
-  console.log(hidden)
   if (hidden === "hidden") {
     setHidden("")
     setButton("Hide Readings")
@@ -31,12 +29,13 @@ const hideTables = () => {
     setButton("Show Readings")
   }
 };
+
   //Build the table data by mapping through the readings.
 const readingValues = readingData.map(data => {
   if (data.sensorId === sensor.id) {
     return (
-      <tr>
-        <td>{dateLocalizer(data.time)}</td>
+      <tr key={data.time}>
+        <td key={"td " + data.time}>{dateLocalizer(data.time)}</td>
         <TempToggle unit={sensor.units} value={data.value}/>
       </tr>
     )
